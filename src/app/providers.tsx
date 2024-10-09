@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "sonner";
+import UserProvider from "@/context/user.provider";
 
 export interface ProvidersProps {
   children: React.ReactNode;
@@ -18,10 +19,12 @@ export function Providers({ children }: ProvidersProps) {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <NextUIProvider navigate={router.push}>
-        <Toaster />
-        {children}
-      </NextUIProvider>
+      <UserProvider>
+        <NextUIProvider navigate={router.push}>
+          <Toaster />
+          {children}
+        </NextUIProvider>
+      </UserProvider>
     </QueryClientProvider>
   );
 }

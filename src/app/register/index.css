@@ -1,0 +1,19 @@
+.logBg {
+  background-image: url("../../assets/log2.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #fff;
+}
+.quete {
+  position: relative;
+}
+.quete::before {
+  position: absolute;
+  content: "";
+  left: 45%;
+  bottom: -8px;
+  width: 10%;
+  height: 2px;
+  background-color: #b92b27;
+}

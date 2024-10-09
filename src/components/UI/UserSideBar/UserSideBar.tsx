@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-async-client-component */
 "use client";
 import Image from "next/image";
 import React from "react";
@@ -8,8 +9,11 @@ import { IoBookmarkSharp } from "react-icons/io5";
 import { HiOutlineUserGroup } from "react-icons/hi";
 import { TbTimelineEventExclamation } from "react-icons/tb";
 import PrimuerModel from "../PrimuerModel/PrimuerModel";
+// import { useUser } from "@/context/user.provider";
 
 const UserSideBar = () => {
+  // const { user } = useUser();
+
   return (
     <div className="flex flex-col gap-3 sticky top-16">
       <div className="border rounded bg-[#fff]">

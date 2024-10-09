@@ -27,3 +27,16 @@ export type TRecipe = {
   downvotes?: string[];
   premiumContent: boolean;
 };
+
+export interface IUser {
+  _id: string;
+  name: string;
+  role: string;
+  email: string;
+  status: string;
+  follower: string;
+  profilePicture: string;
+  createdAt?: string;
+  updatedAt?: string;
+  __v?: number;
+}

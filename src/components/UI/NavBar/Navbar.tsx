@@ -6,11 +6,10 @@ import { MdOutlineGridView } from "react-icons/md";
 import { BiSolidEdit } from "react-icons/bi";
 import { HiUserGroup } from "react-icons/hi";
 import { FaBell } from "react-icons/fa";
-import Image from "next/image";
-import user from "@/assets/userImg.jpg";
 import { BsGlobe2 } from "react-icons/bs";
 import { IoIosSearch } from "react-icons/io";
 import AddRecipeModel from "../AddRecipeModel/AddRecipeModel";
+import UserDropdown from "../User/UserDropdown/UserDropdown";
 
 const Navbar = () => {
   return (
@@ -65,7 +64,7 @@ const Navbar = () => {
             >
               Try Premium
             </h2>
-            <div>
+            {/* <div>
               <Image
                 className="rounded-full border border-[#adadad]"
                 src={user}
@@ -73,6 +72,9 @@ const Navbar = () => {
                 height={30}
                 alt="user"
               ></Image>
+            </div> */}
+            <div>
+              <UserDropdown></UserDropdown>
             </div>
             <div className="text-2xl text-[#636466]">
               <BsGlobe2 />
