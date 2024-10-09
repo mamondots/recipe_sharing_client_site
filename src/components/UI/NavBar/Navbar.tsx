@@ -1,3 +1,4 @@
+"use client";
 import Link from "next/link";
 import React from "react";
 import { IoHomeSharp } from "react-icons/io5";
@@ -9,6 +10,7 @@ import Image from "next/image";
 import user from "@/assets/userImg.jpg";
 import { BsGlobe2 } from "react-icons/bs";
 import { IoIosSearch } from "react-icons/io";
+import AddRecipeModel from "../AddRecipeModel/AddRecipeModel";
 
 const Navbar = () => {
   return (
@@ -21,19 +23,22 @@ const Navbar = () => {
         </div>
         <div className="hidden lg:flex items-center gap-4">
           <div className="flex items-center justify-center gap-6 text-[#636466] text-[22px]">
-            <Link className="hover:text-[#B92B27] duration-300" href={""}>
+            <Link href="/" className="hover:text-[#B92B27] duration-300">
               <IoHomeSharp />
             </Link>
-            <Link href={""}>
+            <Link href={""} className="hover:text-[#B92B27] duration-300">
               <MdOutlineGridView />
             </Link>
-            <Link href={""}>
+            <Link
+              href="/add_recipe"
+              className="hover:text-[#B92B27] duration-300"
+            >
               <BiSolidEdit />
             </Link>
-            <Link href={""}>
+            <Link href={""} className="hover:text-[#B92B27] duration-300">
               <HiUserGroup />
             </Link>
-            <Link href={""}>
+            <Link href={""} className="hover:text-[#B92B27] duration-300">
               <FaBell />
             </Link>
           </div>
@@ -73,14 +78,15 @@ const Navbar = () => {
               <BsGlobe2 />
             </div>
             <div>
-              <button
+              {/* <button
                 className="text-[12px] font-semibold px-4 py-2 
              rounded-full  
             tracking-wider bg-[#B92B27] hover:bg-[#9c2c29] text-[#fff]  cursor-pointer duration-300
             "
               >
                 Add Recipe
-              </button>
+              </button> */}
+              <AddRecipeModel></AddRecipeModel>
             </div>
           </div>
         </div>

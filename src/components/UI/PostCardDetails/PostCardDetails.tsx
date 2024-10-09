@@ -1,8 +1,11 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
+
+import { useState } from "react";
+/* eslint-disable @typescript-eslint/no-unused-vars */
+
 import Image from "next/image";
 import realUser from "@/assets/realuser.jpg";
-import recipe from "@/assets/recipe.jpg";
+import recipeImage from "@/assets/recipe.jpg";
 
 import { TbArrowBigUpLine } from "react-icons/tb";
 import { TbArrowBigDownLine } from "react-icons/tb";
@@ -10,18 +13,17 @@ import { FaRegComment } from "react-icons/fa";
 import { FaRegShareFromSquare } from "react-icons/fa6";
 import { Tooltip } from "@nextui-org/tooltip";
 import Comment from "../Comment/Comment";
-import { useState } from "react";
-import CardDropdown from "./CardDropdown/CardDropdown";
+
 import Link from "next/link";
 import { TRecipe } from "@/types";
+import CardDropdown from "../PostCard/CardDropdown/CardDropdown";
 
-const PostCard = ({ recipeData }: { recipeData: TRecipe }) => {
+const PostCardDetails = ({ recipe }: { recipe: TRecipe }) => {
+  console.log(recipe);
   const [comment, setComment] = useState(false);
   const handleComment = () => {
     setComment((prevComment) => !prevComment);
   };
-
-  console.log(recipeData);
   return (
     <div className="border rounded py-2 bg-[#fff]">
       <div className="px-4">
@@ -48,30 +50,26 @@ const PostCard = ({ recipeData }: { recipeData: TRecipe }) => {
 
         <div>
           <div className="py-2 mt-2">
-            <Link href={`/recipes/${recipeData._id}`}>
-              <h2 className="font-semibold">{recipeData.title}</h2>
-            </Link>
-            <Link href={`/recipes/${recipeData._id}`}>
-              <p className="py-1 text-[#5e5d5d]">
-                {recipeData.description}....
-              </p>
-            </Link>
+            <div>
+              <Image
+                className="cursor-pointer"
+                src={recipe.images}
+                alt="recipe"
+                width={700}
+                height={700}
+              ></Image>
+            </div>
+            <div className="py-2">
+              <h2 className="font-semibold">{recipe.title}</h2>
+
+              <p className="py-1 text-[#5e5d5d]">{recipe.description}</p>
+            </div>
           </div>
         </div>
       </div>
 
       <div>
-        <Link href={`/recipes/${recipeData._id}`}>
-          <Image
-            className="cursor-pointer"
-            src={recipeData.images}
-            alt="recipe"
-            width={700}
-            height={700}
-          ></Image>
-        </Link>
-
-        <div className="flex items-center justify-between lg:px-4 md:px-4 px-2 mt-4">
+        <div className="flex items-center justify-between lg:px-4 md:px-4 px-2">
           <div className="flex items-center gap-4">
             <div className="flex items-center gap-2 border px-2 rounded-full text-sm cursor-pointer font-semibold text-[#696969]">
               <p className="flex items-center gap-1 hover:text-[#2E69FF] duration-300">
@@ -122,4 +120,4 @@ const PostCard = ({ recipeData }: { recipeData: TRecipe }) => {
   );
 };
 
-export default PostCard;
+export default PostCardDetails;
